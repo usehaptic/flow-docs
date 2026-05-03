@@ -1,0 +1,41 @@
+---
+title: Quickstart
+description: Create a Flow project and run through the core workflow.
+---
+
+This guide walks through the primary Flow Cloud workflow from project creation to project configuration.
+
+## Before You Begin
+
+- You need a Flow account.
+- You need an active project.
+- If Flow AI should call a model provider, connect provider API keys from account settings.
+- If your app needs build-time values, add them in Project Settings before running a build.
+
+## Workflow
+
+1. Create or open a project from the projects dashboard.
+2. Open the project to load the Flow IDE.
+3. Use the Code workspace to open files from the project file tree.
+4. Open Project Settings from the workspace menu and add project values.
+5. Click Run to start a build for the active project.
+6. Use Flow AI from the right-side assistant rail when you want project-aware code generation.
+
+## Project Values
+
+Project Settings currently includes:
+
+- General project details and export controls.
+- Secrets for write-only sensitive values.
+- Environment variables for visible runtime or build values.
+- Capabilities for app entitlements.
+- Certificates and profiles for signing assets.
+
+## Next Steps
+
+<Cards>
+  <Card title="IDE Overview" href="/docs/ide/overview" />
+  <Card title="Project Settings" href="/docs/project-settings/general" />
+  <Card title="Secrets" href="/docs/project-settings/secrets" />
+  <Card title="Builds and Preview" href="/docs/ide/design-preview-builds" />
+</Cards>

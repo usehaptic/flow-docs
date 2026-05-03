@@ -1,0 +1,29 @@
+---
+title: Environment Variables
+description: Visible project values for builds and runtime configuration.
+---
+
+Environment variables are project values that can be read, edited, and used during builds or runtime configuration.
+
+## Visibility
+
+Environment variable values are visible by design. Flow masks them by default, and you can reveal or edit them inline.
+
+## Environments
+
+Environment variables support:
+
+- Development
+- Production
+
+## Add Form
+
+The add form is inline:
+
+```text
+Name | Value | Environment | Add
+```
+
+## When to Use Environment Variables
+
+Use environment variables for values your app or build process needs to read as configuration. Use Secrets instead when the value should be write-only after saving.

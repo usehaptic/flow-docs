@@ -1,0 +1,36 @@
+---
+title: Core Concepts
+description: The main product concepts behind Flow Cloud.
+---
+
+## Projects
+
+A Flow project is the home for your app files, settings, build history, and generated outputs. Flow keeps track of the active project so your workspace can recover after a refresh.
+
+## Workspace Views
+
+The IDE has four primary views:
+
+- Design for visual iteration.
+- Code for file editing.
+- Builds for build output and history.
+- Preview for running or inspecting the app experience.
+
+When Preview is selected, the project/files sidebar is hidden so the preview has more space.
+
+## Project Configuration
+
+Project Settings is where you manage app configuration that should travel with a project.
+
+- Secrets are write-only after you save them.
+- Environment variables are visible and editable, but masked by default.
+- Certificates and provisioning profiles are write-only signing assets.
+- Capabilities describe app entitlements that builds may need.
+
+## Builds
+
+Builds run against the active project and selected environment. Add any required secrets, environment variables, capabilities, or signing assets before starting a build.
+
+## Flow AI
+
+Flow AI is the right-side assistant rail inside the IDE. It can use project context and write generated code into project files.

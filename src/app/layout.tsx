@@ -1,10 +1,20 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
 
 const inter = Inter({
   subsets: ['latin'],
 });
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://docs.flownative.app'),
+  title: {
+    default: 'Flow Docs',
+    template: '%s | Flow Docs',
+  },
+  description: 'Product documentation for Flow Cloud.',
+};
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (

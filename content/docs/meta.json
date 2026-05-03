@@ -1,0 +1,12 @@
+{
+  "title": "Flow Docs",
+  "pages": [
+    "index",
+    "quickstart",
+    "core-concepts",
+    "---Workspace---",
+    "ide",
+    "---Settings---",
+    "project-settings"
+  ]
+}
