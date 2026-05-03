@@ -16,7 +16,7 @@ Run the development server:
 npm run dev
 ```
 
-Open `http://localhost:3000/docs`.
+Open `http://localhost:3000`.
 
 ## Validation
 
@@ -33,8 +33,8 @@ npm run build
 
 ## Routes
 
-- `/`: lightweight docs homepage.
-- `/docs`: Fumadocs documentation app.
+- `/`: Fumadocs documentation app.
+- `/docs/*`: redirects to the matching root docs path.
 - `/api/search`: Fumadocs search route.
 
 ## Deployment Target

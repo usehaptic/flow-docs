@@ -1,29 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { isMarkdownPreferred, rewritePath } from 'fumadocs-core/negotiation';
-import { docsContentRoute, docsRoute } from '@/lib/shared';
+import { isMarkdownPreferred } from 'fumadocs-core/negotiation';
+import { docsContentRoute } from '@/lib/shared';
 
-const { rewrite: rewriteDocs } = rewritePath(
-  `${docsRoute}{/*path}`,
-  `${docsContentRoute}{/*path}/content.md`,
-);
-const { rewrite: rewriteSuffix } = rewritePath(
-  `${docsRoute}{/*path}.mdx`,
-  `${docsContentRoute}{/*path}/content.md`,
-);
+const passthroughPrefixes = ['/_next', '/api', '/og', '/llms', '/favicon.ico'];
 
 export function middleware(request: NextRequest) {
-  const suffixResult = rewriteSuffix(request.nextUrl.pathname);
+  const { pathname } = request.nextUrl;
 
-  if (suffixResult) {
-    return NextResponse.rewrite(new URL(suffixResult, request.nextUrl));
+  if (passthroughPrefixes.some((prefix) => pathname.startsWith(prefix))) {
+    return NextResponse.next();
   }
 
-  if (isMarkdownPreferred(request)) {
-    const docsResult = rewriteDocs(request.nextUrl.pathname);
+  const markdownPath = pathname.endsWith('.mdx') ? pathname.slice(0, -4) : pathname;
 
-    if (docsResult) {
-      return NextResponse.rewrite(new URL(docsResult, request.nextUrl));
-    }
+  if (pathname.endsWith('.mdx') || isMarkdownPreferred(request)) {
+    const slug = markdownPath === '/' ? '' : markdownPath.replace(/^\/docs\/?/, '').replace(/^\//, '');
+    const target = slug.length > 0 ? `${docsContentRoute}/${slug}/content.md` : `${docsContentRoute}/content.md`;
+
+    return NextResponse.rewrite(new URL(target, request.nextUrl));
   }
 
   return NextResponse.next();
