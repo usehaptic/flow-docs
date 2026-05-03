@@ -1,0 +1,41 @@
+---
+title: "Deployment"
+description: "Deployment notes for Flow services and docs"
+icon: "rocket"
+---
+
+## Flow web app
+
+`flow-cloud` builds with Vite and deploys through Cloudflare Workers configuration.
+
+Validation before deploy:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Go services
+
+Run tests before deployment:
+
+```bash
+go test ./...
+```
+
+## Docs
+
+Mintlify deploys from GitHub after the Mintlify GitHub app is connected.
+
+Before pushing docs changes, run:
+
+```bash
+mint broken-links
+```
+
+## Operational notes
+
+- Keep service tokens out of browser environments.
+- Rotate Vault credentials if they are exposed.
+- Verify `VAULT_ADDR`, `VAULT_NAMESPACE`, and `VAULT_KV_MOUNT` before testing Vault writes.
+- Use public HCP Vault endpoint from local development unless private networking is configured.

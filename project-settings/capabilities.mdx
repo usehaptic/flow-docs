@@ -1,0 +1,32 @@
+---
+title: "Capabilities"
+description: "iOS entitlements generated from project settings"
+icon: "shield-check"
+---
+
+Capabilities generate iOS entitlement configuration for a project.
+
+## Current capabilities
+
+The current UI supports toggles for:
+
+- Push Notifications
+- Apple Pay
+- HealthKit
+- Sign in with Apple
+
+## Generated file
+
+Saving capabilities generates `AppShell.entitlements` in the project virtual file system.
+
+## Apple Pay
+
+Apple Pay requires a merchant ID. The default shape is:
+
+```text
+merchant.com.flow.app
+```
+
+## Future persistence
+
+The current implementation regenerates an entitlement file from UI state. Persisting capability settings as durable project metadata is planned.

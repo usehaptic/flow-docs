@@ -1,0 +1,29 @@
+---
+title: "Projects service"
+description: "Project metadata, files, and version APIs"
+icon: "folder-tree"
+---
+
+`flow-projects-service` owns project data and file state.
+
+## Main responsibilities
+
+- Create and list projects.
+- Load a project's virtual file system payload.
+- Read and write file content.
+- Create checkpoints.
+- List file versions.
+- Restore file versions.
+- Export project files for downstream workflows.
+
+## Identity
+
+The service receives user identity from the gateway through `X-Flow-User-ID`.
+
+## File versioning
+
+File versions support history and restoration inside the editor. The IDE uses this to show version lists and diff selected versions.
+
+## Build integration
+
+The IDE currently sends loaded project file content to the build endpoint. The build worker should eventually fetch project data directly or receive a signed job payload.

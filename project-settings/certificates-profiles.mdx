@@ -1,0 +1,33 @@
+---
+title: "Certificates and profiles"
+description: "Vault-backed signing assets for cloud builds"
+icon: "file-lock"
+---
+
+Certificates and provisioning profiles are signing assets used by cloud build and distribution flows.
+
+## Storage model
+
+Signing assets use the same Vault-backed item model as secrets and environment variables.
+
+The item type is:
+
+```text
+certificate-profile
+```
+
+## Browser behavior
+
+Signing asset values are write-only in browser-facing list responses. The UI only shows metadata.
+
+## Vault path
+
+Project signing assets are stored under:
+
+```text
+users/{userID}/projects/{projectID}/{environment}/certificates-profiles/{name}
+```
+
+## Build usage
+
+Build services should resolve signing assets using service-token APIs. They should not fetch values through user-facing browser endpoints.

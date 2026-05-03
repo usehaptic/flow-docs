@@ -1,133 +1,47 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
-icon: 'star'
+title: "Flow Cloud"
+description: "Developer documentation for the browser-native iOS workspace"
+icon: "bolt"
 ---
 
-## Setting up
+Flow Cloud is a browser-native workspace for building and shipping iOS apps. It combines project storage, a web IDE, cloud build infrastructure, Vault-backed configuration, signing assets, and Flow AI into one connected workflow.
 
-Get your documentation site up and running in minutes.
-
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Start building" icon="rocket" href="/quickstart">
+    Create a project, open the IDE, configure runtime values, and run your first cloud build.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Understand the platform" icon="diagram-project" href="/architecture/overview">
+    Learn how the web app, API gateway, project service, vault service, and build workers fit together.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## What Flow gives you
 
-Everything you need to create world-class documentation.
+<CardGroup cols={2}>
+  <Card title="A real project workspace" icon="folder-tree" href="/ide/projects">
+    Flow persists project files, metadata, file versions, and active project state so the IDE can recover after refreshes.
+  </Card>
+  <Card title="A browser IDE" icon="code" href="/ide/editor">
+    Edit Swift and project files in Monaco, switch workspace views, create checkpoints, and inspect build output.
+  </Card>
+  <Card title="Vault-backed configuration" icon="key" href="/project-settings/secrets">
+    Store secrets, environment variables, certificates, and provisioning profiles without exposing sensitive values in the browser.
+  </Card>
+  <Card title="Flow AI" icon="sparkles" href="/ide/flow-ai">
+    Use the right-side assistant rail to generate code directly into project files with project context.
+  </Card>
+</CardGroup>
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## Current implementation status
 
-## Make your content agent ready
+<Info>
+  These docs describe the current Flow Cloud implementation and the near-term contracts needed by build and deploy services. Features marked as planned are not production-ready yet.
+</Info>
 
-Make your docs work for humans and AI agents alike.
+## Main areas
 
-<Columns cols={2}>
-  <Card
-    title="Prompt component"
-    icon="robot"
-    href="/agent-ready/prompt"
-  >
-    Embed shareable AI prompts readers can copy or open in Cursor.
-  </Card>
-  <Card
-    title="Visibility"
-    icon="eye"
-    href="/agent-ready/visibility"
-  >
-    Show different content to humans and agents reading your docs.
-  </Card>
-  <Card
-    title="Contextual menu"
-    icon="bolt"
-    href="/agent-ready/contextual"
-  >
-    Give readers one-click access to Claude, ChatGPT, Cursor, and more.
-  </Card>
-  <Card
-    title="AI coding tools"
-    icon="wand-magic-sparkles"
-    href="/ai-tools/claude-code"
-  >
-    Set up Claude Code, Cursor, or Windsurf with Mintlify's skill.
-  </Card>
-</Columns>
-
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+<CardGroup cols={3}>
+  <Card title="IDE workspace" icon="display-code" href="/ide/overview" />
+  <Card title="Project settings" icon="sliders" href="/project-settings/general" />
+  <Card title="API reference" icon="terminal" href="/api-reference/gateway" />
+</CardGroup>

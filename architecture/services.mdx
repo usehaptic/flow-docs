@@ -1,0 +1,48 @@
+---
+title: "Services"
+description: "Responsibilities of each Flow service"
+icon: "server"
+---
+
+## flow-cloud
+
+The frontend app. It is responsible for:
+
+- Authentication UI and protected routes.
+- Projects dashboard.
+- Flow IDE shell.
+- Project Settings UI.
+- Account Settings UI.
+- Calls to gateway and build endpoints.
+
+## flow-api-gateway
+
+The gateway is responsible for:
+
+- Clerk JWT verification.
+- Forwarding user identity to projects and vault services.
+- Stripping public `Authorization` before proxying to internal services.
+- Routing `/v1/projects*` and `/v1/secrets*`.
+
+## flow-projects-service
+
+The project service is responsible for:
+
+- Project records.
+- Virtual file system payloads.
+- File content and checkpoints.
+- File version history.
+- Project export contracts.
+
+## flow-vault-service
+
+The vault service is responsible for:
+
+- Secret metadata in Postgres.
+- Secret values in HCP Vault KV v2.
+- User-facing list, create, delete, and rotate APIs.
+- Service-token resolve APIs for build and deploy workers.
+
+## Build infrastructure
+
+The build worker is planned to consume project files and resolved Vault-backed configuration to run Mac and iOS build jobs.

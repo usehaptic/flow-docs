@@ -1,81 +1,41 @@
 ---
 title: "Quickstart"
-description: "Start building awesome documentation in minutes"
-icon: 'rocket'
+description: "Create a Flow project and run through the core workflow"
+icon: "rocket"
 ---
 
-## Get started in three steps
+This guide walks through the primary Flow Cloud workflow from project creation to project configuration.
 
-Get your documentation site running locally and make your first customization.
+<Steps>
+  <Step title="Create or open a project">
+    Start from the projects dashboard. Create a new project or open an existing one to load the Flow IDE.
+  </Step>
+  <Step title="Edit files in the IDE">
+    Use the **Code** workspace to open files from the project file tree. Flow loads file content from the project service and saves changes back to the virtual file system.
+  </Step>
+  <Step title="Configure project values">
+    Open **Project settings** from the workspace menu. Add secrets, environment variables, signing assets, and capabilities as needed.
+  </Step>
+  <Step title="Run a build">
+    Click **Run**. Flow sends project files plus project context headers to the build endpoint and streams build output back into the IDE.
+  </Step>
+  <Step title="Use Flow AI">
+    Click **Flow AI** to open the assistant rail. Flow AI can inspect project context and write generated code directly into files.
+  </Step>
+</Steps>
 
-### Step 1: Set up your local environment
+## Before you begin
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+- You need a Flow account.
+- You need an active project.
+- If you want Flow AI to call a model provider, connect provider API keys from account settings.
+- If your app needs secrets at build time, add them in Project Settings before running a build.
 
-### Step 2: Deploy your changes
-
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
+## Where to go next
 
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card title="IDE overview" icon="display-code" href="/ide/overview" />
+  <Card title="Vault-backed configuration" icon="key" href="/architecture/vault-backed-configuration" />
+  <Card title="Project settings" icon="sliders" href="/project-settings/general" />
+  <Card title="Local development" icon="terminal" href="/operations/local-development" />
 </CardGroup>
-
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>

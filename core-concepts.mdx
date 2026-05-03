@@ -1,0 +1,46 @@
+---
+title: "Core concepts"
+description: "The key objects and workflows in Flow Cloud"
+icon: "shapes"
+---
+
+## Project
+
+A project is the durable workspace for an app. It owns files, metadata, build context, and project-specific configuration.
+
+Flow stores the active project locally in the browser so Project Settings can recover the current project after refreshes.
+
+## IDE workspace
+
+The Flow IDE is the browser workspace where you edit files, preview the app, inspect builds, work on design assets, and use Flow AI.
+
+The workspace currently has four top-level views:
+
+- **Design** for design sync and canvas work.
+- **Code** for the Monaco editor and file tree.
+- **Builds** for streamed build logs and reports.
+- **Preview** for simulator/device preview.
+
+## Vault-backed configuration
+
+Flow stores sensitive and environment-specific values in `flow-vault-service`. Metadata lives in Postgres; values live in HCP Vault KV v2.
+
+The supported item types are:
+
+- `secret`
+- `environment-variable`
+- `certificate-profile`
+
+## Flow AI
+
+Flow AI is the assistant rail in the IDE. It receives project context and can write generated file changes directly into the project workspace.
+
+## Service boundary
+
+Flow is split across services:
+
+- `flow-cloud`: React web app.
+- `flow-api-gateway`: authenticated API proxy.
+- `flow-projects-service`: project metadata, files, versions, and exports.
+- `flow-vault-service`: Vault-backed configuration.
+- Build infrastructure: Mac build worker integration.

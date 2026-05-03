@@ -1,0 +1,35 @@
+---
+title: "Design, preview, and builds"
+description: "Workspace views beyond code editing"
+icon: "window"
+---
+
+Flow separates non-code tasks into dedicated workspace views.
+
+## Design
+
+The **Design** view hosts design tooling, including Figma sync configuration and design canvas interactions.
+
+## Preview
+
+The **Preview** view is intended for simulator/device preview. The project file sidebar is hidden in this view so preview has the full available width.
+
+## Builds
+
+The **Builds** view shows build reports and streamed build logs.
+
+When you click **Run**, Flow:
+
+1. Loads all file contents.
+2. Sends them to the build endpoint.
+3. Adds project context headers such as project ID, user ID, and environment.
+4. Streams output into the active build report.
+
+## Build status markers
+
+The build stream currently looks for status markers:
+
+- `BUILD_SUCCESS_MARKER`
+- `BUILD_ERROR_MARKER`
+
+These markers update the report state and surface toast notifications in the IDE.

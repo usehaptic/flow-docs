@@ -1,0 +1,37 @@
+---
+title: "API gateway"
+description: "Authenticated routing for Flow APIs"
+icon: "route"
+---
+
+`flow-api-gateway` is the public API entry point for browser requests.
+
+## Responsibilities
+
+- Validate Clerk identity when auth is required.
+- Expose `/healthz`.
+- Proxy `/v1/projects` to `flow-projects-service`.
+- Proxy `/v1/secrets` to `flow-vault-service`.
+- Forward identity as `X-Flow-User-ID` and `X-Clerk-User-Id`.
+- Remove browser `Authorization` before calling downstream services.
+
+## Routes
+
+| Route | Method | Target |
+| --- | --- | --- |
+| `/healthz` | `GET` | gateway |
+| `/v1/me` | `GET` | gateway |
+| `/v1/projects*` | varies | projects service |
+| `/v1/secrets*` | varies | vault service |
+
+## Configuration
+
+The gateway uses:
+
+```text
+PROJECTS_SERVICE_URL
+VAULT_SERVICE_URL
+CLERK_ISSUER
+CLERK_JWKS_URL
+CLERK_AUDIENCE
+```

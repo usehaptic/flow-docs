@@ -1,0 +1,53 @@
+---
+title: "Local development"
+description: "Run Flow services locally"
+icon: "terminal"
+---
+
+Flow is developed across multiple repositories.
+
+## Repositories
+
+```text
+flow-cloud
+flow-api-gateway
+flow-projects-service
+flow-vault-service
+flow-docs
+```
+
+## flow-cloud
+
+```bash
+npm install
+npm run dev
+```
+
+Validation:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Go services
+
+For Go services:
+
+```bash
+go test ./...
+```
+
+## Docs
+
+Install Mintlify CLI:
+
+```bash
+npm i -g mint
+```
+
+Run local docs preview:
+
+```bash
+mint dev
+```

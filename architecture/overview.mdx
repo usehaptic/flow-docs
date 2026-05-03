@@ -1,0 +1,36 @@
+---
+title: "Architecture overview"
+description: "How Flow Cloud is assembled"
+icon: "diagram-project"
+---
+
+Flow Cloud separates browser UX, authentication, project data, Vault-backed configuration, and build execution into distinct service boundaries.
+
+## Primary components
+
+<CardGroup cols={2}>
+  <Card title="flow-cloud" icon="browser">
+    React web app for the projects dashboard, IDE, Project Settings, account settings, and Flow AI UI.
+  </Card>
+  <Card title="flow-api-gateway" icon="route">
+    Authenticated gateway that validates Clerk identity and proxies requests to downstream services.
+  </Card>
+  <Card title="flow-projects-service" icon="folder-tree">
+    Project metadata, file storage, file versions, checkpoints, and project exports.
+  </Card>
+  <Card title="flow-vault-service" icon="vault">
+    Metadata and Vault value storage for secrets, environment variables, certificates, and profiles.
+  </Card>
+</CardGroup>
+
+## Request flow
+
+1. The browser authenticates with Clerk.
+2. `flow-cloud` calls `flow-api-gateway` for project and vault APIs.
+3. The gateway forwards authenticated user identity headers.
+4. Downstream services enforce user/project ownership.
+5. Build workers use service-token endpoints for sensitive values.
+
+## Principle
+
+Browser APIs should expose only the minimum safe data. Sensitive values are resolved by trusted services at build or deploy time.

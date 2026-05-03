@@ -1,0 +1,100 @@
+---
+title: "Vault service"
+description: "Secrets, environment variables, certificates, and profiles"
+icon: "vault"
+---
+
+`flow-vault-service` stores sensitive project and account configuration.
+
+## User-facing endpoints
+
+### List items
+
+```http
+GET /v1/secrets?scope=project&projectId={projectId}&secretType={type}
+```
+
+Query parameters:
+
+| Name | Description |
+| --- | --- |
+| `scope` | `account` or `project` |
+| `projectId` | Required for project-scoped items |
+| `environment` | Optional environment filter |
+| `secretType` | `secret`, `environment-variable`, or `certificate-profile` |
+
+### Create item
+
+```http
+POST /v1/secrets
+```
+
+```json
+{
+  "scope": "project",
+  "projectId": "uuid",
+  "environment": "Development",
+  "name": "API_KEY",
+  "secretType": "secret",
+  "value": "..."
+}
+```
+
+### Delete item
+
+```http
+DELETE /v1/secrets/{id}
+```
+
+### Rotate item
+
+```http
+POST /v1/secrets/{id}/rotate
+```
+
+```json
+{
+  "value": "replacement"
+}
+```
+
+## Service-token endpoints
+
+Service-token endpoints require `X-Flow-Service-Token`.
+
+### Resolve one item
+
+```http
+POST /v1/secrets/{id}/resolve
+```
+
+### Resolve project items
+
+```http
+POST /v1/secrets
+X-Flow-Service-Token: ...
+```
+
+```json
+{
+  "userId": "clerk-user-id",
+  "projectId": "uuid",
+  "environment": "Development"
+}
+```
+
+Response shape:
+
+```json
+{
+  "projectId": "uuid",
+  "environment": "Development",
+  "secrets": {},
+  "environmentVariables": {},
+  "signingAssets": {}
+}
+```
+
+<Warning>
+  Do not call resolve endpoints from the browser. They are for trusted services only.
+</Warning>

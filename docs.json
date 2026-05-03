@@ -1,72 +1,65 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Flow Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#3B82F6",
+    "light": "#60A5FA",
+    "dark": "#2563EB"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Product",
         "groups": [
           {
             "group": "Getting started",
+            "pages": ["index", "quickstart", "core-concepts", "development"]
+          },
+          {
+            "group": "IDE workspace",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "ide/overview",
+              "ide/projects",
+              "ide/editor",
+              "ide/design-preview-builds",
+              "ide/flow-ai"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Project settings",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Agent ready",
-            "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "project-settings/general",
+              "project-settings/secrets",
+              "project-settings/environment-variables",
+              "project-settings/capabilities",
+              "project-settings/certificates-profiles"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Platform",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Architecture",
             "pages": [
-              "api-reference/introduction"
+              "architecture/overview",
+              "architecture/services",
+              "architecture/vault-backed-configuration"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "API reference",
+            "pages": ["api-reference/gateway", "api-reference/projects-service", "api-reference/vault-service"]
+          },
+          {
+            "group": "Operations",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "operations/local-development",
+              "operations/environment-variables",
+              "operations/deployment"
             ]
           }
         ]
@@ -75,14 +68,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Flow Cloud",
+          "href": "https://github.com/usehaptic/flow-cloud",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "GitHub",
+          "href": "https://github.com/usehaptic",
+          "icon": "github"
         }
       ]
     }
@@ -94,33 +87,22 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "GitHub",
+        "href": "https://github.com/usehaptic/flow-cloud"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Open Flow",
+      "href": "https://flow.usehaptic.com"
     }
   },
   "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/usehaptic"
     }
   }
 }

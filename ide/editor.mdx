@@ -1,0 +1,32 @@
+---
+title: "Code editor"
+description: "Editing files, checkpoints, and file versions"
+icon: "code"
+---
+
+The code editor uses Monaco and project files from the Flow virtual file system.
+
+## File tree
+
+The file tree appears in the workspace sidebar for **Code** and **Builds** views. It is hidden in **Preview**.
+
+## File loading
+
+When you select a file, Flow loads its content from the project service if it is not already loaded.
+
+## Saving
+
+Edits update local IDE state immediately. Flow debounces saves to avoid writing on every keystroke.
+
+## Version history
+
+The editor includes a file history panel. It can:
+
+- List versions for the active file.
+- Create checkpoints.
+- Compare a selected version with the current content.
+- Restore a previous version.
+
+## Generated files
+
+Flow AI can create or update files by writing generated modifications into the same virtual file system used by the editor.

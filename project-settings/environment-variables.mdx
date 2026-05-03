@@ -1,0 +1,32 @@
+---
+title: "Environment variables"
+description: "Runtime and build configuration values"
+icon: "scroll"
+---
+
+Environment variables are Vault-backed values that can be read back in the browser.
+
+## How they differ from secrets
+
+Secrets are write-only in list responses. Environment variables return their value so they can be shown, hidden, and edited inline.
+
+## Supported environments
+
+- `Development`
+- `Production`
+
+## Editing values
+
+Environment variable rows include a masked value by default. You can reveal or edit the value inline.
+
+## Storage path
+
+Environment variables use the same Vault cluster and KV mount as secrets, but a separate path kind:
+
+```text
+users/{userID}/projects/{projectID}/{environment}/environment-variables/{name}
+```
+
+## Build usage
+
+Build and deploy services should resolve environment variables through the service-token project resolve endpoint, not through browser-facing list APIs.

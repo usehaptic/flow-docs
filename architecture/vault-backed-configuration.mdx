@@ -1,0 +1,49 @@
+---
+title: "Vault-backed configuration"
+description: "How Flow stores and resolves sensitive project values"
+icon: "key"
+---
+
+Flow uses Postgres for metadata and HCP Vault KV v2 for sensitive payloads.
+
+## Why split metadata and values
+
+Postgres is better for listing, filtering, uniqueness, timestamps, and ownership checks. Vault is better for sensitive values.
+
+This means Flow can show metadata in the UI without exposing secret payloads.
+
+## Item types
+
+| Type | Browser list value | Purpose |
+| --- | --- | --- |
+| `secret` | Hidden | API keys and private tokens |
+| `environment-variable` | Returned | Runtime and build configuration |
+| `certificate-profile` | Hidden | Signing certificates and provisioning profiles |
+
+## Uniqueness
+
+Vault items are unique by:
+
+- user
+- project
+- environment
+- item type
+- name
+
+## Path layout
+
+Project-scoped items use this structure:
+
+```text
+users/{userID}/projects/{projectID}/{environment}/{kind}/{name}
+```
+
+Where `kind` is one of:
+
+- `secrets`
+- `environment-variables`
+- `certificates-profiles`
+
+## Service-token resolution
+
+Build and deploy workers should resolve project values with a service token. This avoids sending sensitive values through browser APIs.

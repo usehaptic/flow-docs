@@ -1,0 +1,48 @@
+---
+title: "Environment variables"
+description: "Configuration used by Flow services"
+icon: "rectangle-terminal"
+---
+
+## flow-cloud
+
+```text
+VITE_API_BASE_URL
+VITE_BUILD_API_BASE_URL
+VITE_CLERK_PUBLISHABLE_KEY
+```
+
+## flow-api-gateway
+
+```text
+PROJECTS_SERVICE_URL
+VAULT_SERVICE_URL
+CLERK_ISSUER
+CLERK_JWKS_URL
+CLERK_AUDIENCE
+```
+
+## flow-vault-service
+
+```text
+DATABASE_URL
+SERVICE_TOKEN
+VAULT_ADDR
+VAULT_NAMESPACE
+VAULT_KV_MOUNT
+VAULT_ROLE_ID
+VAULT_SECRET_ID
+VAULT_TOKEN
+```
+
+## Build context headers
+
+The IDE sends these headers to the build endpoint:
+
+```text
+X-Flow-Project-ID
+X-Flow-User-ID
+X-Flow-Environment
+```
+
+The build worker should use these values to resolve Vault-backed configuration through service-token APIs.

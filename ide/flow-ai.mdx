@@ -1,0 +1,37 @@
+---
+title: "Flow AI"
+description: "The right-rail assistant that writes code into project files"
+icon: "sparkles"
+---
+
+Flow AI is the assistant rail in the IDE.
+
+## Opening Flow AI
+
+Click **Flow AI** in the IDE header. The assistant opens as a full-height right rail for the entire site shell.
+
+## Provider keys
+
+Flow AI checks connected providers from account integrations. Supported provider identifiers include:
+
+- `anthropic`
+- `openai`
+- `gemini`
+
+If no provider is connected, the model selector shows provider options as requiring API keys.
+
+## Project context
+
+Flow AI sends project files, chat history, provider selection, and optional image attachments to the generation endpoint.
+
+## File modifications
+
+Generated modifications stream back as structured file updates. Flow applies them to the virtual file system while the response streams.
+
+## Attachments
+
+You can attach UI screenshots to prompts. Image attachments are encoded and included in the generation payload.
+
+<Warning>
+  Flow AI can write files directly. Review generated changes before relying on them for production builds.
+</Warning>
